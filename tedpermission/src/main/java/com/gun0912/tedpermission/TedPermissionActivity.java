@@ -73,6 +73,10 @@ public class TedPermissionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         setupFromSavedInstanceState(savedInstanceState);
+        if (permissions == null || permissions.length == 0) {
+            permissionResult(null);
+            return;
+        }
         // check windows
         if (needWindowPermission()) {
             requestWindowPermission();
